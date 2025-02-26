@@ -1,0 +1,27 @@
+{
+  "name": "@alyment-testkaique/react",
+  "version": "1.0.0",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsup src/index.tsx --format esm,cjs --dts --external react",
+    "dev": "tsup src/index.tsx --format esm,cjs --dts --external react --watch"
+  },
+  "keywords": [],
+  "author": "Kaique araujo lopes",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@alyment-testkaique/tokens": "*",
+    "@alyment-testkaique/ts-config": "*",
+    "@types/react": "^19.0.10",
+    "@types/react-dom": "^19.0.4",
+    "react": "^19.0.0",
+    "tsup": "^8.4.0",
+    "typescript": "^5.7.3"
+  },
+  "dependencies": {
+    "@stitches/react": "^1.2.8"
+  }
+}

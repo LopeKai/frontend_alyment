@@ -1,0 +1,20 @@
+{
+  "name": "@alyment-testkaique/tokens",
+  "version": "1.0.0",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsup src/index.ts --format esm,cjs --dts",
+    "dev": "tsup src/index.ts --format esm,cjs --dts --watch"
+  },
+  "keywords": [],
+  "author": "Kaique araujo lopes",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@alyment-testkaique/ts-config": "*",
+    "tsup": "^8.4.0",
+    "typescript": "^5.7.3"
+  }
+}
