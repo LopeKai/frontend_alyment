@@ -15,9 +15,9 @@ import { styled } from '@mui/material/styles';
 import { tableCellClasses } from '@mui/material/TableCell';
 
 import { useUsersGetAllData } from '../../../hooks/users/useGetAllUsers';
+import { FielterField } from '../FilterField.tsx/FilterField';
 
 import 'react-loading-skeleton/dist/skeleton.css';
-import { FielterField } from '../FilterField.tsx/FilterField';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
@@ -103,15 +103,14 @@ export function Table() {
                             </TableUi>
                         </TableContainer>
 
-                        {/* Paginação */}
                         <TablePagination
-                            rowsPerPageOptions={[10]} // Opções de itens por página
+                            rowsPerPageOptions={[10]} 
                             component="div"
-                            count={usersData?.length || 0} // Total de itens
-                            rowsPerPage={rowsPerPage} // Itens por página
-                            page={page} // Página atual
-                            onPageChange={handleChangePage} // Função para mudar a página
-                            onRowsPerPageChange={handleChangeRowsPerPage} // Função para mudar itens por página
+                            count={usersData?.length || 0} 
+                            rowsPerPage={rowsPerPage} 
+                            page={page} 
+                            onPageChange={handleChangePage} 
+                            onRowsPerPageChange={handleChangeRowsPerPage} 
                         />
                     </>
             }
