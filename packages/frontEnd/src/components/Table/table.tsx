@@ -3,7 +3,7 @@ import Skeleton from 'react-loading-skeleton'
 import {
     TableContainer,
     Paper,
-    Table,
+    Table as TableUi,
     TableHead,
     TableRow,
     TableCell,
@@ -17,6 +17,7 @@ import { tableCellClasses } from '@mui/material/TableCell';
 import { useUsersGetAllData } from '../../../hooks/users/useGetAllUsers';
 
 import 'react-loading-skeleton/dist/skeleton.css';
+import { FielterField } from '../FilterField.tsx/FilterField';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
@@ -37,7 +38,7 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
     },
 }));
 
-export default function CustomPaginationActionsTable() {
+export function Table() {
     const { data: usersData, isLoading, isError } = useUsersGetAllData();
 
     const [page, setPage] = useState(0);
@@ -61,7 +62,7 @@ export default function CustomPaginationActionsTable() {
     }
 
     return (
-        <div className='border'>
+        <div className='flex flex-col gap-4'>
             {
                 isLoading ?
                     <Skeleton
@@ -70,8 +71,10 @@ export default function CustomPaginationActionsTable() {
                     />
                     :
                     <>
+                        <FielterField />
+
                         <TableContainer>
-                            <Table>
+                            <TableUi>
                                 <TableHead>
                                     <TableRow>
                                         <StyledTableCell>Avatar</StyledTableCell>
@@ -97,7 +100,7 @@ export default function CustomPaginationActionsTable() {
                                         </StyledTableRow>
                                     ))}
                                 </TableBody>
-                            </Table>
+                            </TableUi>
                         </TableContainer>
 
                         {/* Paginação */}
