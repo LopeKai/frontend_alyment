@@ -20,6 +20,18 @@ var __spreadValues = (a, b) => {
   return a;
 };
 var __spreadProps = (a, b) => __defProps(a, __getOwnPropDescs(b));
+var __objRest = (source, exclude) => {
+  var target = {};
+  for (var prop in source)
+    if (__hasOwnProp.call(source, prop) && exclude.indexOf(prop) < 0)
+      target[prop] = source[prop];
+  if (source != null && __getOwnPropSymbols)
+    for (var prop of __getOwnPropSymbols(source)) {
+      if (exclude.indexOf(prop) < 0 && __propIsEnum.call(source, prop))
+        target[prop] = source[prop];
+    }
+  return target;
+};
 var __export = (target, all) => {
   for (var name in all)
     __defProp(target, name, { get: all[name], enumerable: true });
@@ -38,6 +50,7 @@ var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: tru
 var index_exports = {};
 __export(index_exports, {
   Button: () => Button,
+  TextInput: () => TextInput,
   config: () => config,
   createTheme: () => createTheme,
   css: () => css,
@@ -332,9 +345,93 @@ var Button = styled("button", {
   }
 });
 Button.displayName = "Button";
+
+// src/components/TextInput/TextInput.tsx
+var import_react2 = require("react");
+var import_formik = require("formik");
+
+// src/components/TextInput/styles.ts
+var TextInputContainer = styled("div", {
+  position: "relative",
+  width: "100%",
+  height: 50
+});
+var Input = styled("input", {
+  width: "100%",
+  height: 50,
+  padding: "0px 16px",
+  border: "1px solid $gray400",
+  borderRadius: 12,
+  outline: "none",
+  fontSize: "$sm",
+  transition: "0.2s",
+  color: "$gray700",
+  fontFamily: "$default",
+  "&:valid ~ span": {
+    translate: "0px -36px",
+    fontSize: "$sm",
+    fontWeight: "$semiBold"
+  },
+  "&:focus ~ span": {
+    color: "$green700",
+    translate: "0px -36px",
+    fontSize: "$md",
+    fontWeight: "$semiBold"
+  },
+  "&::placeholder-shown ~ span": {
+    translate: "0px -36px",
+    fontSize: "$md",
+    fontWeight: "$semiBold"
+  },
+  "&:focus": {
+    border: "1px solid $green700"
+  },
+  "&:disabled": {
+    cursor: "not-allowed"
+  }
+});
+var Span = styled("span", {
+  position: "relative",
+  left: "4px",
+  top: -74,
+  translate: "0 -50%",
+  fontSize: "$md",
+  color: "$gray500",
+  pointerEvents: "none",
+  transition: "0.2s",
+  fontFamily: "$default",
+  fontWeight: "$semiBold"
+});
+var TextError = styled("p", {
+  color: "$error700",
+  position: "absolute",
+  bottom: -20,
+  left: 4,
+  fontSize: "0.75rem"
+});
+
+// src/components/TextInput/TextInput.tsx
+var import_jsx_runtime = require("react/jsx-runtime");
+var TextInput = (0, import_react2.forwardRef)(
+  (_a, ref) => {
+    var _b = _a, { title } = _b, props = __objRest(_b, ["title"]);
+    const [field, meta] = (0, import_formik.useField)(props);
+    return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(TextInputContainer, { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+        Input,
+        __spreadValues(__spreadValues({
+          ref
+        }, field), props)
+      ),
+      /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Span, { children: title ? title : "description" }),
+      meta.touched && meta.error && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TextError, { children: meta.error })
+    ] });
+  }
+);
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {
   Button,
+  TextInput,
   config,
   createTheme,
   css,

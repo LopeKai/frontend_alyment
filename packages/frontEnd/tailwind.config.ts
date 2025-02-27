@@ -7,12 +7,16 @@ export default {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    fontFamily: {
+      'sans': ['Poppins', 'sans-serif']
+    },
+
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        'alyment-primary': '#005f53',
+
       },
-    },
+    }
   },
   plugins: [],
 } satisfies Config;

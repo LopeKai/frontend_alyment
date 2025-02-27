@@ -1,0 +1,42 @@
+.wrapper {
+    width: 100vw;
+    height: 100vh;
+    background: #051f2f;
+}
+
+.containerContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100%;
+}
+
+.containerContent h1 {
+    font-size: 5.7rem;
+    color: red;
+}
+
+.containerContent h2 {
+    color: white;
+    font-size: 2.25rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.containerContent p {
+    color: #9ca3af;
+    text-align: center;
+    font-size: 1.125rem;
+    margin-bottom: 2rem;
+}
+
+.containerContent a {
+    color: #3b82f6 ;
+    text-decoration-line: underline;
+}
+
+.containerContent a:hover {
+    color: #1d4ed8;
+}
+
