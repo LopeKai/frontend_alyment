@@ -99,7 +99,7 @@ export function ModalCrud(props: ModalCrudProps) {
         >
             <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
                 <div
-                    className="relative w-[95vh] md:w-[708px] max-h-[826px] h-[calc(100vh-140px)] outline-none border-none rounded-3xl shadow-[0px_4px_8px_3px_rgba(0,0,0,0.15),0px_1px_3px_0px_rgba(0,0,0,0.3)] bg-white overflow-hidden"
+                    className="relative w-[95vh] md:w-[708px] max-h-[626px] h-[calc(100vh-140px)] outline-none border-none rounded-3xl shadow-[0px_4px_8px_3px_rgba(0,0,0,0.15),0px_1px_3px_0px_rgba(0,0,0,0.3)] bg-white overflow-hidden"
                     data-aos={!isMobile && 'flip-up'}
                 >
                     <div className='flex items-center justify-center h-12 mt-4'>

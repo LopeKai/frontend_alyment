@@ -16,8 +16,9 @@ import { optionsTypeAccount } from './utils/loginUtils';
 import { submitLoginData } from './types/loginTypes';
 
 import 'aos/dist/aos.css'
+import { withAuthScreen } from '../../../hocs/withAuthScreen';
 
-export default function Home() {
+function LoginPage() {
   const router = useRouter();
   const [loadingSubmit, setLoadingSubmit] = useState(false);
 
@@ -41,7 +42,7 @@ export default function Home() {
       document.cookie = `accountType=${values.selectedOptionAdminOrUser}; path=/`;
       router.push(HOME_PATH);
       setLoadingSubmit(false);
-    }, 1500);
+    }, 1000);
 
   }
 
@@ -133,3 +134,5 @@ export default function Home() {
     </div>
   );
 }
+
+export default withAuthScreen(LoginPage);
