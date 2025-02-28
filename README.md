@@ -75,6 +75,14 @@ Caso o usuário selecione a opção "Outros", ele não terá acesso a plataforma
 
 ![Image](https://github.com/user-attachments/assets/71e2b066-f1f7-4caf-bb92-e7df08d6bf0f)
 
+<strong>Caso você faça login com uma conta do tipo "Usuário", não será possível adicionar um novo usuário.</strong>
+
+![Image](https://github.com/user-attachments/assets/3d17e976-982a-42c5-a5a3-421df8666a9c)
+
+<strong>Caso o login seja feito com uma conta do tipo "Vendedor", você não terá acesso ao painel de informações nem poderá adicionar um usuário.</strong>
+
+![Image](https://github.com/user-attachments/assets/7701bc5c-e5cf-46b3-b3b5-2786230a1b23)
+
 ##  ADICIONAR UM NOVO USUÁRIO
 
 ![Image](https://github.com/user-attachments/assets/9b91fa26-b941-453a-941f-43964ed31c50)
