@@ -70,3 +70,23 @@ No campo de Select, será possível escolher o tipo de conta: Admin, Usuário, V
 
 Por exemplo, uma conta do tipo Usuário não poderá adicionar novos usuários.
 Caso o usuário selecione a opção "Outros", ele não terá acesso a plataforma e será redirecionado para uma página 404, informando que ele não tem permissão.
+
+##  HOME
+
+![Image](https://github.com/user-attachments/assets/71e2b066-f1f7-4caf-bb92-e7df08d6bf0f)
+
+##  ADICIONAR UM NOVO USUÁRIO
+
+![Image](https://github.com/user-attachments/assets/9b91fa26-b941-453a-941f-43964ed31c50)
+
+##  EDITAR UM USUÁRIO
+
+![Image](https://github.com/user-attachments/assets/be6feb76-c3f8-42d4-85c4-cfb239539346)
+
+##  EXCLUIR UM USUÁRIO
+
+![Image](https://github.com/user-attachments/assets/eeb5b6d5-0c6f-4b0a-80dc-ba61f1011d97)
+
+##  PESQUISAR UM USUÁRIO ID
+
+![Image](https://github.com/user-attachments/assets/fd91180b-11a6-4683-91a5-070cb2ff5c91)
