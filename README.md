@@ -34,8 +34,28 @@ git clone https://github.com/LopeKai/test_frontend_alyment.git
 
  ##  Instalar as dependências
 
-no diretório <strong>test_frontend_alyment</strong> execute o comando: 
+no seu terminal e no diretório <strong>test_frontend_alyment</strong> execute o comando: 
 
 ```
 npm install
+```
+
+##  Execução do front end
+
+depois da instalaçao das depedencias, navegue até a pasta front
+
+```
+cd packages/frontEnd
+```
+
+em seguida execute esse comando no terminal:
+
+```
+npm run dev
+```
+
+vai rodar um servidor local na rota:
+
+```
+http://localhost:3000/
 ```
