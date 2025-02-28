@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import Skeleton from 'react-loading-skeleton'
+import EditIcon from '@mui/icons-material/Edit';
+import DeleteIcon from '@mui/icons-material/Delete';
 import {
     TableContainer,
     Paper,
@@ -10,6 +12,7 @@ import {
     TableBody,
     TablePagination,
     Avatar,
+    IconButton
 } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import { tableCellClasses } from '@mui/material/TableCell';
@@ -18,6 +21,8 @@ import { useUsersGetAllData } from '../../../hooks/users/useGetAllUsers';
 import { FielterField } from '../FilterField.tsx/FilterField';
 
 import 'react-loading-skeleton/dist/skeleton.css';
+import { ModalCrud } from '@/app/(auth)/home/_components/ModalCrud/ModalCrud';
+import { ModalAlert } from '../ModalAlert/ModalAlert';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
@@ -25,7 +30,7 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
         color: theme.palette.common.white,
     },
     [`&.${tableCellClasses.body}`]: {
-        fontSize: 14,
+        fontSize: 12,
     },
 }));
 
@@ -39,10 +44,21 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 }));
 
 export function Table() {
-    const { data: usersData, isLoading, isError } = useUsersGetAllData();
+    const [isOpenModalCrud, setIsOpenModalCrud] = useState<{ open: boolean, type: string, userId: string; }>({
+        open: false,
+        type: '',
+        userId: "",
+    });
+    const [isOpenModalAlert, setIsOpenModalAlert] = useState<{ open: boolean, userId: string; }>({
+        open: false,
+        userId: ""
+    });
 
     const [page, setPage] = useState(0);
-    const [rowsPerPage, setRowsPerPage] = useState(10)
+    const [rowsPerPage, setRowsPerPage] = useState(10);
+
+    const { data: usersData, isLoading, isError } = useUsersGetAllData();
+    const currentData = usersData?.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage);
 
     const handleChangePage = (event: unknown, newPage: number) => {
         setPage(newPage);
@@ -53,7 +69,35 @@ export function Table() {
         setPage(0);
     };
 
-    const currentData = usersData?.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage);
+    const handleEditAndDeleteUser = (userId: string, type: string) => {
+        if (type === "Editar Usuário") {
+            setIsOpenModalCrud(() => ({
+                open: true,
+                type: type || '',
+                userId: userId,
+            }));
+        } else {
+            setIsOpenModalAlert(() => ({
+                open: true,
+                userId: userId,
+            }));
+        }
+    };
+
+    const handleCloseModalCrud = (type?: string) => {
+        setIsOpenModalCrud((prevState) => ({
+            open: false,
+            type: '',
+            userId: '',
+        }));
+    };
+
+    const handleCloseModalAlert = () => {
+        setIsOpenModalAlert(() => ({
+            open: false,
+            userId: "",
+        }));
+    };
 
     if (isError) {
         return <div className="flex items-center justify-center">
@@ -83,7 +127,7 @@ export function Table() {
                                         <StyledTableCell>Empresa</StyledTableCell>
                                         <StyledTableCell>Cidade</StyledTableCell>
                                         <StyledTableCell>País</StyledTableCell>
-
+                                        <StyledTableCell>Ações</StyledTableCell>
                                     </TableRow>
                                 </TableHead>
                                 <TableBody>
@@ -97,6 +141,14 @@ export function Table() {
                                             <StyledTableCell>{user.company}</StyledTableCell>
                                             <StyledTableCell>{user.city}</StyledTableCell>
                                             <StyledTableCell>{user.country}</StyledTableCell>
+                                            <StyledTableCell>
+                                                <IconButton onClick={() => handleEditAndDeleteUser(user.id, 'Editar Usuário')} aria-label="editar">
+                                                    <EditIcon className="w-5 h-5" />
+                                                </IconButton>
+                                                <IconButton onClick={() => handleEditAndDeleteUser(user.id, 'Deletar Usuário')} aria-label="excluir">
+                                                    <DeleteIcon className="w-5 h-5" />
+                                                </IconButton>
+                                            </StyledTableCell>
                                         </StyledTableRow>
                                     ))}
                                 </TableBody>
@@ -104,15 +156,33 @@ export function Table() {
                         </TableContainer>
 
                         <TablePagination
-                            rowsPerPageOptions={[10]} 
+                            rowsPerPageOptions={[10]}
                             component="div"
-                            count={usersData?.length || 0} 
-                            rowsPerPage={rowsPerPage} 
-                            page={page} 
-                            onPageChange={handleChangePage} 
-                            onRowsPerPageChange={handleChangeRowsPerPage} 
+                            count={usersData?.length || 0}
+                            rowsPerPage={rowsPerPage}
+                            page={page}
+                            onPageChange={handleChangePage}
+                            onRowsPerPageChange={handleChangeRowsPerPage}
                         />
                     </>
+            }
+
+            {
+                isOpenModalCrud.open && (
+                    <ModalCrud
+                        isOpenModalCrud={isOpenModalCrud}
+                        handleCloseModalCrud={handleCloseModalCrud}
+                    />
+                )
+            }
+
+            {
+                isOpenModalAlert && (
+                    <ModalAlert
+                        isOpenModalAlert={isOpenModalAlert}
+                        handleCloseModalAlert={handleCloseModalAlert}
+                    />
+                )
             }
         </div>
     );

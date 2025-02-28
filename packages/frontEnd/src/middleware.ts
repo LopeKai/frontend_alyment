@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 
-type AccountType = 'user' | 'admin' | 'seller';
+type AccountType = 'user' | 'admin' | 'seller' | 'others';
 
 export function middleware(request: NextRequest) {
     const { pathname } = request.nextUrl;
@@ -10,8 +10,9 @@ export function middleware(request: NextRequest) {
 
     const restrictedRoutes: Record<AccountType, RegExp[]> = {
         admin: [],
+        user: [] ,
         seller: [],
-        user: [/^\/home$/],
+        others: [/^\/home$/]
     };
 
     const isRestricted = accountType

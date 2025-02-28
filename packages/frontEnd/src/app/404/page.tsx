@@ -20,8 +20,8 @@ export default function Custom404() {
                     Você não tem permissão para acessar esta página.
                 </p>
 
-                <Link href="/" className='text-blue-500 underline hover:text-blue-700'>
-                    Volte para a página inicial e selecione o tipo de conta 'ADMIN'
+                <Link href="/" className='text-blue-500 underline hover:text-blue-700 text-center'>
+                    Volte para a página inicial e selecione o tipo de conta 'ADMIN', 'Usuário' ou 'Vendedor'
                 </Link>
             </div>
         </div>

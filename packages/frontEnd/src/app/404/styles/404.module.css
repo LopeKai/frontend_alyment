@@ -1,7 +1,7 @@
 .wrapper {
     width: 100vw;
-    height: 100vh;
-    background: #051f2f;
+    height: calc(100vh - 64px);
+    background: #000;
 }
 
 .containerContent {
@@ -32,7 +32,7 @@
 }
 
 .containerContent a {
-    color: #3b82f6 ;
+    color: #fff ;
     text-decoration-line: underline;
 }
 
