@@ -90,3 +90,25 @@ Caso o usuário selecione a opção "Outros", ele não terá acesso a plataforma
 ##  PESQUISAR UM USUÁRIO ID
 
 ![Image](https://github.com/user-attachments/assets/fd91180b-11a6-4683-91a5-070cb2ff5c91)
+
+##  Execução do design system
+
+Navegue até a pasta designSystem
+
+```
+ cd packages/designSystem
+```
+
+vai rodar um servidor local na rota:
+
+```
+ http://localhost:6006
+```
+
+##  Documentação Storybook do design system
+
+![Image](https://github.com/user-attachments/assets/8bfc414b-20b0-41e7-83e4-7e4cb08bad31)
+
+Este Storybook serve como documentação do Design System, apresentando os principais componentes utilizados no front-end.
+
+
