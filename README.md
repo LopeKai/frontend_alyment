@@ -42,13 +42,13 @@ npm install
 
 ##  Execução do front end
 
-depois da instalaçao das depedencias, navegue até a pasta front
+depois da instalaçao das dependência, navegue até a pasta frontEnd
 
 ```
 cd packages/frontEnd
 ```
 
-em seguida execute esse comando no terminal:
+em seguida execute esse comando no seu terminal:
 
 ```
 npm run dev
