@@ -65,5 +65,8 @@ tela de início, onde é possível acessar com qualquer credencial.
 
 ![Image](https://github.com/user-attachments/assets/8e497cf1-2610-467f-ad43-2c0f7523cf70)
 
-OBS: No campo de Select, será possível escolher o tipo de conta: Admin, Usuário, Vendedor, e outros. Cada tipo de conta terá suas próprias permissões.
+OBS: 
+No campo de Select, será possível escolher o tipo de conta: Admin, Usuário, Vendedor, entre outros. Cada tipo de conta terá suas próprias permissões.
+
 Por exemplo, uma conta do tipo Usuário não poderá adicionar novos usuários.
+Caso o usuário selecione a opção "Outros", ele não terá acesso a plataforma e será redirecionado para uma página 404, informando que ele não tem permissão.
